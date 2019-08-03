@@ -6,7 +6,7 @@
 ####                                                                                                                   ####
 ####   Ref.  : Hilal Balout, mail: hilal_balout@hotmail.com                                                            ####
 ####                                                                                                                   ####
-####   Usage: gnuplot -c pTRACE_E_multT.gp  File Efermi dE  T_min T_max dT                                             ####
+####   Usage: gnuplot -c all.gp  File Efermi dE  T_min T_max dT                                             ####
 ####                               \          \     \    \    \      \   \___Temperature step                          ####
 ####                                \          \     \    \    \      \______Maximum of Temperature                    ####
 ####                                 \          \     \    \    \____________Minimum of Temperature                    ####
@@ -21,7 +21,7 @@
 ###########################################################################################################################
 if  (ARGC != 6){print "\n       Arguments Error... ";
 print "======================================================================="
-print "  Usage: gnuplot -c pTRACE_E_multT.gp File Efermi dE  T_min T_max dT" 
+print "  Usage: gnuplot -c all.gp File Efermi dE  T_min T_max dT" 
 print "=======================================================================\n"
 exit
 }
