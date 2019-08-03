@@ -1,7 +1,7 @@
 # BolltzTraP
 calculate the transport properties
 
-We will calculate transport properties of Silicon using Quantum espresso.
+We will calculate transport properties of Silicon using Quantum espresso and BoltzTraP.
 
 Here, we have an example of silicon to calculate transport properties.
 Path for psedo-potential files
