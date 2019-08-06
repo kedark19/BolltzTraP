@@ -7,11 +7,10 @@ PSEUDO_DIR=export PSEUDO_DIR=~/kedar/softwares/SSSP_precision_pseudos/
 # Path of your Quantum espresso executables
 PW_ROOT=export PW_ROOT=~/softwares/qe/qe-6.3/bin/
 # Path of BoltzTraP executable
-Boltz_path = export Boltz_path=~/kedar/softwares/boltztrap-1.2.5/src/
-
+Boltz_path=export Boltz_path=~/kedar/softwares/boltztrap-1.2.5/src/
 name=Si
 nK=8
-dnk=20
+dnk=12
 degauss=0.005
 
 rm -rf boltz
@@ -102,8 +101,7 @@ cat >  $name.nscf.in << EOF
 /
 ATOMIC_SPECIES
 Si 28.085 Si.pbe-n-rrkjus_psl.1.0.0.UPF
-ATOMIC_POSITIONS {crystal}# Path of BoltzTraP executable
-Boltz_path = export Boltz_path=~/kedar/softwares/boltztrap-1.2.5/src/
+ATOMIC_POSITIONS {crystal}
 Si 0.00 0.00 0.00
 Si 0.25 0.25 0.25
 K_POINTS AUTOMATIC
@@ -121,8 +119,11 @@ cp $name.nscf.out Boltz.nscf.out
 E_fermi=`grep 'Fermi energy' Si.nscf.out | awk '{print $5}'`
 python2.7 qe2boltz.py Boltz pw  $E_fermi 0 
 
-#~/softwares/boltztrap-1.2.5/src/x_trans BoltzTraP
-Boltz_path/BoltzTraP BoltzTraP.def
+# Path of BoltzTraP
+$Boltz_path/BoltzTraP BoltzTraP.def
+
+
+
 
 
 
