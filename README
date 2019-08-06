@@ -1,0 +1,32 @@
+Here are the instructions to run the code and get your thermoelectric data.
+
+You have to give correct path for pseudopotential file, executable of Quantum espresso, and executable of BoltzTraP in job.sh file.  
+Pseudopotential path will contain the path of your psedopotential file where it is located. If you download the psedopotential file
+from this link  https://www.materialscloud.org/discover/sssp/table/precision, you give the path of psedopotential file which is inside
+it.
+
+Path of Quantum espresso executble will contains its all executable like pw.x, band.x etc.
+i.e. path_of_quatum_espresso_installation_folder/bin/
+
+Path of BoltzTraP executable will contain its BoltzTraP executable. 
+i.e. path_of_BoltzTraP_installation_folder/src/
+
+After giveing accurate path you have to run following command
+$ bash job.sh
+
+To plot your output, use the following command
+all.gp is a gnuplot file to plot seeback constant, electrical conductivity per tau, thermal conductivity per tau, and power factor.
+Here is the format to run this file generally.
+gnuplot -c all.gp path_of_Boltz.trace_file  fermi_enery_in_Ry  range_of_enery_from_E_fermi initial_temp final_temp temp_range
+
+Here, fermi energy in Rydberg can be extracted by this command in terminal
+head -3 Boltz.intrans | tail -1 | awk '{print $1}'
+it will give  E_fermi= 0.492903980096 
+
+Here, range of energy from fermi energy is 0.15. So it will plot E_fermi-15 Ry to E_fermi+15 Ry.
+
+Temperature range you can select according to your choice, but it will be better to plot 8 plots at a time. 
+
+$ gnuplot -c all.gp boltz/Boltz.trace 0.492903980096 0.15 100 800 100
+
+If you job runs successfully, you will get the results like the results given in the results folder.
