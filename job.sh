@@ -1,6 +1,7 @@
 #!/bin/sh
 ####################################################################
 ####################################################################
+####################################################################
 # define some QE variables (do not change)
 # Path of your pseudopotential file 
 PSEUDO_DIR=export PSEUDO_DIR=~/kedar/softwares/SSSP_precision_pseudos/
@@ -111,7 +112,7 @@ mpirun -np 4 $PW_ROOT/pw.x <$name.nscf.in> $name.nscf.out
 
 #####################################################################################      
 
-echo "BoltzTraP Calculation....."
+echo "BoltzTraP Calculation......"
 #######################################################################################
 # BoltzTraP 
 cp ../qe2boltz.py .
@@ -121,9 +122,6 @@ python2.7 qe2boltz.py Boltz pw  $E_fermi 0
 
 # Path of BoltzTraP
 $Boltz_path/BoltzTraP BoltzTraP.def
-
-
-
 
 
 
