@@ -1,4 +1,4 @@
-# BolltzTraP
+# DFT plus BoltzTraP calculate
 calculate the transport properties
 
 We will calculate transport properties of Silicon using Quantum espresso and BoltzTraP.
